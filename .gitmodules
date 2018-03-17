@@ -1,0 +1,3 @@
+[submodule "neo-python"]
+	path = neo-python
+	url = https://github.com/CityOfZion/neo-python
