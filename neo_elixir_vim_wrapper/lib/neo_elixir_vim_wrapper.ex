@@ -30,6 +30,33 @@ defmodule NeoElixirVimWrapper do
          
         py |> Python.call(stackitem_decoder(elem(tuple, 1)).GetBoolean(), from_file: "InteropService") 
     end
-
+    
+    @spec getArray(tuple()) :: [...] 
+    def getArray( tuple ) do
+        {:ok, py} = Python.start(python_path: @python_dir)
+         
+        py |> Python.call(stackitem_decoder(elem(tuple, 1)).GetArray(), from_file: "InteropService") 
+    end
+ 
+    @spec getInterface(tuple()) :: undefined 
+    def getInterface( tuple ) do
+        {:ok, py} = Python.start(python_path: @python_dir)
+         
+        py |> Python.call(stackitem_decoder(elem(tuple, 1)).GetInterface(), from_file: "InteropService") 
+    end 
+    
+    @spec getString(tuple()) :: list()
+    def getInterface( tuple ) do
+        {:ok, py} = Python.start(python_path: @python_dir)
+         
+        py |> Python.call(stackitem_decoder(elem(tuple, 1)).GetString(), from_file: "InteropService") 
+    end
+         
+    @spec __str__(tuple()) :: list()  
+    def getInterface( tuple ) do
+        {:ok, py} = Python.start(python_path: @python_dir)
+         
+        py |> Python.call(stackitem_decoder(elem(tuple, 1)).__str__(), from_file: "InteropService") 
+    end 
 
 end
